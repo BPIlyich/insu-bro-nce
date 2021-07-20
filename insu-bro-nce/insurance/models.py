@@ -12,6 +12,7 @@ class InsuranceProductCategory(models.Model):
     Модель категории страхового продукта
     """
     name = models.CharField(_('name'), max_length=100)
+    is_active = models.BooleanField(_('is active'), default=True)
 
     def __str__(self):
         return str(self.name)
@@ -52,6 +53,7 @@ class InsuranceProduct(models.Model):
     term = models.CharField(_('term'), choices=TERM_CHOICES, max_length=10)
     created_at = models.DateTimeField(_('created at'), auto_now_add=True)
     updated_at = models.DateTimeField(_('updated at'), auto_now=True)
+    is_active = models.BooleanField(_('is active'), default=True)
 
     def __str__(self):
         return _('%(name)s by %(created_by)s') % {
