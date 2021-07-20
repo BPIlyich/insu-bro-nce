@@ -1,0 +1,38 @@
+{% extends 'django_bootstrap5/bootstrap5.html' %}
+
+{% load static %}
+{% load translate from i18n %}
+{% load bootstrap_messages from django_bootstrap5 %}
+
+{% block bootstrap5_title %}{{ title }}{% endblock bootstrap5_title %}
+
+{% block bootstrap5_extra_head %}
+{% endblock bootstrap5_extra_head %}
+
+{% block bootstrap5_content %}
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a href="{% url 'insurance:product:table' %}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+        <span class="fs-4">{% translate 'Insu-bro-nce' %}</span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="{% url 'insurance:product:table' %}" class="nav-link active" aria-current="page">{% translate 'Show insurance products' %}</a></li>
+
+        {% if user.is_authenticated %}
+        <li class="nav-item"><a href="{% url 'insurance:product:create' %}" class="nav-link">{% translate 'Create insurance product' %}</a></li>
+        <li class="nav-item"><a href="{% url 'insurance:product:response_table' %}" class="nav-link">{% translate 'Show insurance product responces' %}</a></li>
+        {% endif %}
+
+      </ul>
+    </header>
+
+    <div class="section text-center">
+      <h2>{{ title }}</h2>
+    </div>
+
+    {% bootstrap_messages %}
+    {% block content %}{% endblock content %}
+  </div>
+{% endblock bootstrap5_content %}

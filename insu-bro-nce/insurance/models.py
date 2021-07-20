@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
 from django.utils.translation import pgettext_lazy
+from django.urls import reverse_lazy
 
 
 User = get_user_model()
@@ -56,8 +57,24 @@ class InsuranceProduct(models.Model):
     is_active = models.BooleanField(_('is active'), default=True)
 
     def __str__(self):
-        return _('%(name)s by %(created_by)s') % {
-            'name': self.name, 'created_by': self.created_by}
+        return _('%(category)s: %(name)s by %(created_by)s') % {
+            'category': self.category,
+            'name': self.name,
+            'created_by': self.created_by
+        }
+
+    def get_response_creation_url(self) -> str:
+        """
+        Возвращает адрес создания отклика на конкретный страховой продукт
+        """
+        return reverse_lazy(
+            'insurance:product:response_create', kwargs={'pk': self.pk})
+
+    def get_update_url(self) -> str:
+        """
+        Возвращает адрес редактирования объекта
+        """
+        return reverse_lazy('insurance:product:update', kwargs={'pk': self.pk})
 
     class Meta:
         ordering = ['-created_at']
