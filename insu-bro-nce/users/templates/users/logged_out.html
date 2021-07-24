@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{% block content %}
+  <a href="{% url 'users:login' %}">{% translate 'Log in again' %}</a>
+  <h4>{% translate 'Thanks for spending some quality time with the Web site today.' %}</h4>
+{% endblock content %}

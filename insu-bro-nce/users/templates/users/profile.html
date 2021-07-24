@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{% block content %}
+  <ul class="list-group">
+    <li class="list-group-item">{% translate 'company name'|capfirst %}: <b>{{ user.company_name }}</b></li>
+    <li class="list-group-item">{% translate 'email address'|capfirst %}: <b>{{ user.email }}</b></li>
+  </ul>
+{% endblock content %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load bootstrap_form bootstrap_button from django_bootstrap5 %}
+
+{% block content %}
+  <form method="post">
+    {% csrf_token %}
+    {% bootstrap_form form label_class='label' wrapper_class='form-group basic input-wrapper' %}
+    <div><a href="{% url 'users:signup' %}">{% translate 'Sign up' %}</a></div>
+    <div><a href="{% url 'users:password_reset' %}" class="text-muted">{% translate 'Forgotten your password?' %}</a></div>
+    <div class="form-button-group transparent">
+      {% bootstrap_button button_type="submit" button_class='btn btn-primary mx-1 btn-block' content=_('OK') %}
+      {% bootstrap_button button_type="reset" button_class='btn-light mx-1 btn-block' content=_('Reset') %}
+    </div>
+  </form>
+{% endblock content %}
