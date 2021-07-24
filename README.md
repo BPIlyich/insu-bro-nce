@@ -29,12 +29,12 @@ docker-compose exec web python insu-bro-nce/manage.py createsuperuser
 После запуска докера сайт будет доступен по адресу `http://127.0.0.1:8080/`
 
 ### Без использования Docker
-Создаем виртуальное окружение
+[*опционально*] Создаем виртуальное окружение
 ```sh
 python3 -m venv .env
 ```
 
-Активируем виртуальное окружение
+[*опционально*] Активируем виртуальное окружение
 ```sh
 source .env/bin/activate
 ```
@@ -51,7 +51,7 @@ python insu-bro-nce/manage.py migrate
 
 Локализация
 ```sh
-django-admin compilemessages
+python insu-bro-nce/manage.py compilemessages
 ```
 
 Запуск dev-сервера
@@ -61,5 +61,3 @@ python insu-bro-nce/manage.py runserver
 
 ## TODO
 - Написать тесты
-- Создать формы
-- Сверстать страницы
