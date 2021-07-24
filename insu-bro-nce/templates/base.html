@@ -2,34 +2,60 @@
 
 {% load static %}
 {% load translate from i18n %}
-{% load bootstrap_messages from django_bootstrap5 %}
+{% load bootstrap_messages bootstrap_button from django_bootstrap5 %}
 
-{% block bootstrap5_title %}{{ title }}{% endblock bootstrap5_title %}
-
-{% block bootstrap5_extra_head %}
-{% endblock bootstrap5_extra_head %}
+{% block bootstrap5_title %}{% translate 'insu-bro-nce'|capfirst %} | {{ title }}{% endblock bootstrap5_title %}
 
 {% block bootstrap5_content %}
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light rounded" aria-label="Eleventh navbar example">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'insurance:product:table' %}">{% translate 'insu-bro-nce'|capfirst %}</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSite" aria-controls="navbarSite" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSite">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            {% if user.is_authenticated %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdownInsProd" data-bs-toggle="dropdown" aria-expanded="false">{% translate 'insurance products'|capfirst %}</a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownInsProd">
+                <li><a href="{% url 'insurance:product:table' %}" class="dropdown-item" aria-current="page">{% translate 'all'|capfirst %}</a></li>
+                <li><a href="{% url 'insurance:product:create' %}" class="dropdown-item">{% translate 'create'|capfirst %}</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a href="{% url 'insurance:product:response_table' %}" class="nav-link active" aria-current="page">{% translate 'responses'|capfirst %}</a></li>
+            {% else %}
+            <li class="nav-item"><a href="{% url 'insurance:product:table' %}" class="nav-link active" aria-current="page">{% translate 'insurance products'|capfirst %}</a></li>
+            {% endif %}
+          </ul>
+
+          {% if user.is_authenticated %}
+          <div class="dropdown text-end">
+            <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="https://github.com/mdo.png" alt="mdo" class="rounded-circle" width="32" height="32">
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end text-small" aria-labelledby="dropdownUser1" style="">
+              <li><a class="dropdown-item" href="{% url 'users:profile' %}">{% translate 'profile'|capfirst %}</a></li>
+              <li><a class="dropdown-item" href="{% url 'users:password_change' %}">{% translate 'password change'|capfirst %}</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="{% url 'users:logout' %}">{% translate 'sign out'|capfirst %}</a></li>
+            </ul>
+          </div>
+          {% else %}
+          <div class="text-end">
+            <a href="{% url 'users:login' %}" class="btn btn-primary btn-outline-light me-2">{% translate 'login'|capfirst %}</a>
+            <a href="{% url 'users:signup' %}" class="btn btn-light text-dark me-2">{% translate 'sign up'|capfirst %}</a>
+          {% endif %}
+        </div>
+      </div>
+    </nav>
+  </header>
+
   <div class="container">
-    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-      <a href="{% url 'insurance:product:table' %}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-        <span class="fs-4">{% translate 'Insu-bro-nce' %}</span>
-      </a>
-
-      <ul class="nav nav-pills">
-        <li class="nav-item"><a href="{% url 'insurance:product:table' %}" class="nav-link active" aria-current="page">{% translate 'Show insurance products' %}</a></li>
-
-        {% if user.is_authenticated %}
-        <li class="nav-item"><a href="{% url 'insurance:product:create' %}" class="nav-link">{% translate 'Create insurance product' %}</a></li>
-        <li class="nav-item"><a href="{% url 'insurance:product:response_table' %}" class="nav-link">{% translate 'Show insurance product responces' %}</a></li>
-        {% endif %}
-
-      </ul>
-    </header>
-
     <div class="section text-center">
-      <h2>{{ title }}</h2>
+      <h1>{{ title }}</h1>
     </div>
 
     {% bootstrap_messages %}

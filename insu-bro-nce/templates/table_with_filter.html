@@ -5,21 +5,14 @@
 
 
 {% block content %}
-<div>
+  {% if filter %}
+  <form method="get" class="row row-cols-lg-auto g-3 align-items-center">
+    {% bootstrap_form filter.form layout='floating' %}
     <div>
-      {% if filter %}
-      <form method="get" class="row row-cols-lg-auto g-3 align-items-center">
-        {% bootstrap_form filter.form layout='inline' %}
-        <div>
-          {% bootstrap_button _('Filter') button_class='btn btn-primary btn-sm btn-block' %}
-        </div>
-      </form>
-      {% endif %}
+      {% bootstrap_button _('Filter') button_class='btn btn-primary btn-block' %}
     </div>
-
-    <div>
-      {% render_table table %}
-    </div>
-</div>
+  </form>
+  {% endif %}
+  {% render_table table %}
 {% endblock %}
 
