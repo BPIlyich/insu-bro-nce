@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-18 17:18+0000\n"
+"POT-Creation-Date: 2021-07-24 20:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,11 +32,11 @@ msgstr "Суперпользователь должен быть с is_staff=Tru
 msgid "Superuser must have is_superuser=True."
 msgstr "Суперпользователь должен быть с is_superuser=True."
 
-#: users/models.py:18
+#: users/models.py:18 users/templates/users/profile.html:8
 msgid "email address"
 msgstr "электронная почта"
 
-#: users/models.py:20
+#: users/models.py:20 users/templates/users/profile.html:7
 msgid "company name"
 msgstr "название компании"
 
@@ -59,3 +59,156 @@ msgstr "пользователь"
 #: users/models.py:36
 msgid "users"
 msgstr "пользователи"
+
+#: users/templates/users/logged_out.html:6
+msgid "Log in again"
+msgstr "Войти снова"
+
+#: users/templates/users/logged_out.html:7
+msgid "Thanks for spending some quality time with the Web site today."
+msgstr "Спасибо за проведенное сегодня на сайте время."
+
+#: users/templates/users/login.html:10
+msgid "Sign up"
+msgstr "Зарегистрироваться"
+
+#: users/templates/users/login.html:11
+msgid "Forgotten your password?"
+msgstr "Забыли пароль?"
+
+#: users/templates/users/login.html:13
+#: users/templates/users/password_change_form.html:10
+#: users/templates/users/signup.html:13
+msgid "OK"
+msgstr "Ок"
+
+#: users/templates/users/login.html:14
+#: users/templates/users/password_change_form.html:11
+#: users/templates/users/signup.html:14
+msgid "Reset"
+msgstr "Сброс"
+
+#: users/templates/users/password_change_done.html:6
+msgid "Your password was changed."
+msgstr "Ваш пароль изменен."
+
+#: users/templates/users/password_reset_complete.html:6
+msgid "Your password has been set. You may go ahead and log in now."
+msgstr "Ваш пароль установлен. Вы можете войти в систему."
+
+#: users/templates/users/password_reset_complete.html:7 users/urls.py:17
+msgid "Log in"
+msgstr "Войти"
+
+#: users/templates/users/password_reset_confirm.html:8
+msgid ""
+"Please enter your new password twice so we can verify you typed it in "
+"correctly."
+msgstr ""
+"Пожалуйста, введите свой новый пароль дважды, чтобы мы могли проверить "
+"правильность ввода"
+
+#: users/templates/users/password_reset_confirm.html:15
+msgid "New password:"
+msgstr "Новый пароль:"
+
+#: users/templates/users/password_reset_confirm.html:20
+msgid "Confirm password:"
+msgstr "Подтверждение пароля:"
+
+#: users/templates/users/password_reset_confirm.html:23
+msgid "Change my password"
+msgstr "Изменить мой пароль"
+
+#: users/templates/users/password_reset_confirm.html:27
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used. Please request a new password reset."
+msgstr ""
+"Ссылка для сброса пароля недействительна, возможно, потому, что она уже "
+"использовалась. Запросите новый сброс пароля."
+
+#: users/templates/users/password_reset_done.html:6
+#: users/templates/users/signup.html:7
+msgid "Back to log in"
+msgstr "Вернуться на страницу входа"
+
+#: users/templates/users/password_reset_done.html:8
+msgid ""
+"We’ve emailed you instructions for setting your password, if an account "
+"exists with the email you entered. You should receive them shortly."
+msgstr ""
+"Мы отправили вам инструкцию по установке нового пароля на указанный адрес "
+"электронной почты (если в нашей базе данных есть такой адрес). Вы должны "
+"получить ее в ближайшее время."
+
+#: users/templates/users/password_reset_done.html:9
+msgid ""
+"If you don’t receive an email, please make sure you’ve entered the address "
+"you registered with, and check your spam folder."
+msgstr ""
+"Если вы не получили письмо, пожалуйста, убедитесь, что вы ввели адрес с "
+"которым Вы зарегистрировались, и проверьте папку со спамом."
+
+#: users/templates/users/password_reset_email.html:6
+#: users/templates/users/password_reset_email.html:9
+msgid "home"
+msgstr "домой"
+
+#: users/templates/users/password_reset_email.html:12
+#, python-format
+msgid ""
+"You're receiving this email because you requested a password reset for your "
+"user account at %(site_name)s."
+msgstr ""
+"Вы получили это письмо потому был запрошен сброс пароля для вашего профиля "
+"на сайте %(site_name)s."
+
+#: users/templates/users/password_reset_email.html:14
+msgid "Please go to the following page and choose a new password:"
+msgstr "Пожалуйста пройдите на следующую страницу и установите новый пароль:"
+
+#: users/templates/users/password_reset_email.html:19
+msgid "Your username, in case you’ve forgotten:"
+msgstr "Ваш логин, если вы его забыли:"
+
+#: users/templates/users/password_reset_email.html:21
+msgid "Thanks for using our site!"
+msgstr "Спасибо за пользование нашим сайтом"
+
+#: users/templates/users/password_reset_email.html:23
+#, python-format
+msgid "The %(site_name)s team"
+msgstr "Команда сайта %(site_name)s"
+
+#: users/templates/users/password_reset_form.html:7
+msgid " Back to log in"
+msgstr " Вернуться на страницу входа"
+
+#: users/templates/users/password_reset_form.html:9
+msgid ""
+"Forgotten your password? Enter your email address below, and we’ll email "
+"instructions for setting a new one."
+msgstr ""
+"Забыли пароль? Введите свой адрес электронной почты ниже, и мы вышлем вам "
+"инструкцию, как установить новый пароль."
+
+#: users/templates/users/password_reset_form.html:16
+msgid "Reset my password"
+msgstr "Восстановить мой пароль"
+
+#: users/urls.py:13
+msgid "Sign Up"
+msgstr "Регистрация"
+
+#: users/urls.py:21
+msgid "Logged out"
+msgstr "Выход"
+
+#: users/views.py:18
+msgid "Your profile was created successfully"
+msgstr "Ваш профиль создан успешно"
+
+#: users/views.py:27
+msgid "User profile"
+msgstr "Профиль пользователя"

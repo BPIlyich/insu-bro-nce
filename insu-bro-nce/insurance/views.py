@@ -104,7 +104,6 @@ class InsuranceProductResponseCreateView(SuccessMessageMixin, CreateView):
 
     def get_initial(self):
         initial = super().get_initial()
-        periodic_transaction = get_object_or_404(
+        initial['insurance_product'] = get_object_or_404(
             InsuranceProduct, pk=self.kwargs['pk'])
-        initial['insurance_product'] = periodic_transaction
         return initial

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-18 17:18+0000\n"
+"POT-Creation-Date: 2021-07-24 20:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,92 +20,145 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: insurance/models.py:14 insurance/models.py:48
+#: insurance/models.py:17 insurance/models.py:54
 msgid "name"
 msgstr "название"
 
-#: insurance/models.py:22
+#: insurance/models.py:18 insurance/models.py:61
+msgid "is active"
+msgstr "активен?"
+
+#: insurance/models.py:26
 msgid "insurance category"
 msgstr "категория страхового продукта"
 
-#: insurance/models.py:23
+#: insurance/models.py:27
 msgid "insurance categories"
 msgstr "категории страховых продуктов"
 
-#: insurance/models.py:31
+#: insurance/models.py:36
 msgid "month"
 msgstr "месяц"
 
-#: insurance/models.py:32
+#: insurance/models.py:37
 msgid "year"
 msgstr "год"
 
-#: insurance/models.py:38
+#: insurance/models.py:42
 msgid "category"
 msgstr "категория"
 
-#: insurance/models.py:44
+#: insurance/models.py:48
 msgid "created by"
 msgstr "создано"
 
-#: insurance/models.py:49
+#: insurance/models.py:55
 msgid "description"
 msgstr "описание"
 
-#: insurance/models.py:51
-msgid "percent rate"
-msgstr "процентная ставка"
+#: insurance/models.py:57
+msgid "rate %"
+msgstr "ставка %"
 
-#: insurance/models.py:52
+#: insurance/models.py:58
 msgid "term"
 msgstr "срок"
 
-#: insurance/models.py:53 insurance/models.py:87
+#: insurance/models.py:59 insurance/models.py:110
 msgid "created at"
-msgstr "дата создания"
+msgstr "создано"
 
-#: insurance/models.py:54
+#: insurance/models.py:60
 msgid "updated at"
-msgstr "дата редактирования"
+msgstr "отредактировано"
 
-#: insurance/models.py:57
+#: insurance/models.py:64
 #, python-format
-msgid "%(name)s by %(created_by)s"
-msgstr "%(name)s от %(created_by)s"
+msgid "%(category)s: %(name)s by %(created_by)s"
+msgstr "%(category)s: %(name)s от %(created_by)s"
 
-#: insurance/models.py:63 insurance/models.py:74
+#: insurance/models.py:86 insurance/models.py:97
 msgid "insurance product"
 msgstr "страховой продукт"
 
-#: insurance/models.py:64
+#: insurance/models.py:87
 msgid "insurance products"
 msgstr "страховые продукты"
 
-#: insurance/models.py:79
+#: insurance/models.py:102
 msgctxt "user name"
 msgid "name"
 msgstr "имя"
 
-#: insurance/models.py:81
+#: insurance/models.py:104
 msgid "What should I call you?"
 msgstr "Как к вам обращаться?"
 
-#: insurance/models.py:83
+#: insurance/models.py:106
 msgid "email"
 msgstr "электронная почта"
 
-#: insurance/models.py:85
+#: insurance/models.py:108
 msgid "phone"
 msgstr "телефон"
 
-#: insurance/models.py:86
+#: insurance/models.py:109
 msgid "comment"
 msgstr "комментарий"
 
-#: insurance/models.py:97
+#: insurance/models.py:120
 msgid "insurance product response"
 msgstr "отклик на страховой продукт"
 
-#: insurance/models.py:98
+#: insurance/models.py:121
 msgid "insurance product responses"
-msgstr "отклики на страхоые продукты"
+msgstr "отклики на страховые продукты"
+
+#: insurance/tables.py:14
+msgid "actions"
+msgstr "действия"
+
+#: insurance/tables.py:19
+msgid "response"
+msgstr "отклик"
+
+#: insurance/tables.py:21
+msgid "update"
+msgstr "редактировать"
+
+#: insurance/views.py:25
+msgid "Insurance products"
+msgstr "Страховые продукты"
+
+#: insurance/views.py:37
+#, python-format
+msgid "Insurance product \"%(name)s\" was created successfully"
+msgstr "Страховой продукт \"%(name)s\" создан успешно"
+
+#: insurance/views.py:39
+msgid "Create insurance product"
+msgstr "Создать страховой продукт"
+
+#: insurance/views.py:56
+#, python-format
+msgid "Insurance product \"%(name)s\" was updated successfully"
+msgstr "Страховой продукт \"%(name)s\" отредактирован успешно"
+
+#: insurance/views.py:58
+msgid "Update insurance product"
+msgstr "Редактировать страховой продукт"
+
+#: insurance/views.py:77
+msgid "Insurance product responces"
+msgstr "Отклики на страхоые продукты"
+
+#: insurance/views.py:99
+#, python-format
+msgid ""
+"Response for insurance product \"%(insurance_product)s\" was created "
+"successfully"
+msgstr "Отклик на страховой продукт \"%(insurance_product)s\" создан успешно"
+
+#: insurance/views.py:103
+msgid "Create response for insurance product"
+msgstr "Создать отклик на страховой продукт"
