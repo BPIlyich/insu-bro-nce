@@ -12,6 +12,8 @@ class InsuranceProductCategory(models.Model):
     """
     Модель категории страхового продукта
     """
+    # FIXME: локализация в формах не работает как ожидается
+    # вместо "наименование" выводит "имя"
     name = models.CharField(_('name'), max_length=100)
     is_active = models.BooleanField(_('is active'), default=True)
 
@@ -19,7 +21,7 @@ class InsuranceProductCategory(models.Model):
         return str(self.name)
 
     class Meta:
-        ordering = ['name']
+        ordering = ('name', )
         db_table = 'insurance category'
         verbose_name = _('insurance category')
         verbose_name_plural = _('insurance categories')
@@ -29,10 +31,10 @@ class InsuranceProduct(models.Model):
     """
     Модель страхового продукта
     """
-    TERM_CHOICES = (
-        ('month', _('month')),
-        ('year', _('year')),
-    )
+
+    class Term(models.TextChoices):
+        MONTH = 'MO', _('month')
+        YEAR = 'YE', _('year')
 
     category = models.ForeignKey(
         InsuranceProductCategory,
@@ -47,11 +49,13 @@ class InsuranceProduct(models.Model):
         related_name='insurance_products'
     )
 
+    # FIXME: локализация в формах не работает как ожидается
+    # вместо "наименование" выводит "имя"
     name = models.CharField(_('name'), max_length=100)
     description = models.TextField(_('description'))
     percent_rate = models.DecimalField(
-        _('percent rate'), max_digits=4, decimal_places=2)
-    term = models.CharField(_('term'), choices=TERM_CHOICES, max_length=10)
+        _('rate %'), max_digits=4, decimal_places=2)
+    term = models.CharField(_('term'), choices=Term.choices, max_length=2)
     created_at = models.DateTimeField(_('created at'), auto_now_add=True)
     updated_at = models.DateTimeField(_('updated at'), auto_now=True)
     is_active = models.BooleanField(_('is active'), default=True)
@@ -77,7 +81,7 @@ class InsuranceProduct(models.Model):
         return reverse_lazy('insurance:product:update', kwargs={'pk': self.pk})
 
     class Meta:
-        ordering = ['-created_at']
+        ordering = ('-created_at', )
         db_table = 'insurance_product'
         verbose_name = _('insurance product')
         verbose_name_plural = _('insurance products')
@@ -111,7 +115,7 @@ class InsuranceProductResponse(models.Model):
         return f'{self.comment:.50}...'
 
     class Meta:
-        ordering = ['-created_at']
+        ordering = ('-created_at', )
         db_table = 'insurance_product_response'
         verbose_name = _('insurance product response')
         verbose_name_plural = _('insurance product responses')
