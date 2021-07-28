@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django_bootstrap5',
     'django_filters',
     'django_tables2',
+    'anymail',
 
     'users',
     'insurance',
@@ -150,6 +151,17 @@ LOGIN_REDIRECT_URL = reverse_lazy('insurance:product:table')
 LOGIN_URL = reverse_lazy('users:login')
 
 
-#django_tables2
+# django_tables2
 DJANGO_TABLES2_TEMPLATE = 'django_tables2/bootstrap-responsive.html'
 DJANGO_TABLES2_PAGE_RANGE = 5
+
+
+# Email (anymail) config
+EMAIL_BACKEND = os.environ.get(
+    'EMAIL_BACKEND', 'anymail.backends.sendinblue.EmailBackend')
+DEFAULT_FROM_EMAIL = os.environ.get(
+    'DEFAULT_FROM_EMAIL', 'webmaster@localhost')
+if EMAIL_BACKEND == 'anymail.backends.sendinblue.EmailBackend':
+    ANYMAIL = {
+        'SENDINBLUE_API_KEY': os.environ.get('SENDINBLUE_API_KEY'),
+    }
