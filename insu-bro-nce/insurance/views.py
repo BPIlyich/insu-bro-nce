@@ -12,6 +12,7 @@ from django_tables2.views import SingleTableMixin
 from .models import InsuranceProduct, InsuranceProductResponse
 from .filters import InsuranceProductFilter, InsuranceProductResponseFilter
 from .tables import InsuranceProductTable, InsuranceProductResponseTable
+from .tasks import send_email_notification
 
 
 class InsuranceProductFilteredTableView(SingleTableMixin, FilterView):
@@ -107,3 +108,22 @@ class InsuranceProductResponseCreateView(SuccessMessageMixin, CreateView):
         initial['insurance_product'] = get_object_or_404(
             InsuranceProduct, pk=self.kwargs['pk'])
         return initial
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        # TODO: Подумать над текстом и добавить локализацию
+        subject = _(f'New response at {self.object.created_at:%d.%m.%Y %H:%M} '
+                    f'for product "{self.object.insurance_product}"')
+        message = _('\n'.join((
+            f'name: {self.object.name}',
+            f'email: {self.object.email}',
+            f'phone: {self.object.phone}',
+            f'comment: {self.object.comment}'
+        )))
+        # FIXME: Проблемы с кириллицей
+        send_email_notification.delay(
+            user_id=self.object.insurance_product.created_by.pk,
+            subject=subject,
+            message=message
+        )
+        return response
