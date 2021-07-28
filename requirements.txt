@@ -3,3 +3,4 @@ django-bootstrap5==2.1.1
 django-filter==2.4.0
 django-tables2==2.4.0
 django-anymail[sendinblue]==8.4
+celery[librabbitmq]==5.1.2
