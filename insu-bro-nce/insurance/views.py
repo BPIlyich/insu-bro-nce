@@ -120,7 +120,6 @@ class InsuranceProductResponseCreateView(SuccessMessageMixin, CreateView):
             f'phone: {self.object.phone}',
             f'comment: {self.object.comment}'
         )))
-        # FIXME: Проблемы с кириллицей
         send_email_notification.delay(
             user_id=self.object.insurance_product.created_by.pk,
             subject=subject,
