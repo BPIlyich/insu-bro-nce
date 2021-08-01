@@ -29,6 +29,8 @@ urlpatterns = [
         template_name='users/password_change_done.html',
     ), name='password_change_done'),
 
+    # TODO: Можно переопределить send_mail в PasswordResetForm для отправки
+    # почты через очередь задач... Но надо ли?
     path('password_reset/', views.PasswordResetView.as_view(
         template_name='users/password_reset_form.html',
         success_url = reverse_lazy(f'{app_name}:password_reset_done')
