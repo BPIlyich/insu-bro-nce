@@ -2,10 +2,35 @@ version: "3"
 
 services:
   web:
+    image: backend-image
+    container_name: web
     build: .
-    command: bash -c "python insu-bro-nce/manage.py migrate && python insu-bro-nce/manage.py compilemessages && python insu-bro-nce/manage.py runserver 0.0.0.0:8080"
+    command: sh -c "python insu-bro-nce/manage.py migrate &&
+                      python insu-bro-nce/manage.py compilemessages &&
+                      python insu-bro-nce/manage.py runserver 0.0.0.0:8080"
     env_file: dev.env
     volumes:
       - .:/code
     ports:
       - "8080:8080"
+    depends_on:
+      - rabbit
+
+  # TODO: на версии 3.9.0 не работают переменные. Нужен конфигурационный файл
+  rabbit:
+    image: rabbitmq:3.8.19-management
+    restart: on-failure
+    container_name: rabbit
+    hostname: rabbit
+    env_file: dev.env
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  worker:
+    image: backend-image
+    restart: on-failure
+    command: sh -c "cd insu-bro-nce && celery -A config worker -l INFO"
+    depends_on:
+      - web
+      - rabbit
