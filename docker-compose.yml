@@ -6,6 +6,7 @@ services:
     container_name: web
     build: .
     command: sh -c "python insu-bro-nce/manage.py migrate &&
+                      python insu-bro-nce/manage.py loaddata fixtures.json &&
                       python insu-bro-nce/manage.py compilemessages &&
                       python insu-bro-nce/manage.py runserver 0.0.0.0:8080"
     env_file: dev.env

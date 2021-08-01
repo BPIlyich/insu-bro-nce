@@ -1,0 +1,556 @@
+[
+{
+  "model": "users.customuser",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$CxNJoxeyFpgrVSPYYtcaua$ALPD4exiSCHD5gbMwp6Z+72gNGXWi/MQuf+YwrmsulU=",
+    "last_login": "2021-08-01T21:32:14.285Z",
+    "is_superuser": true,
+    "email": "root@example.com",
+    "company_name": "root",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2021-08-01T21:31:55.169Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 2,
+  "fields": {
+    "password": "pswpswpswpsw",
+    "last_login": null,
+    "is_superuser": false,
+    "email": "rgu@example.com",
+    "company_name": "ПАО СК \"РосГосУжас\"",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-08-01T00:00:00Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 3,
+  "fields": {
+    "password": "pswpswpswpsw",
+    "last_login": null,
+    "is_superuser": false,
+    "email": "bs@example.com",
+    "company_name": "АО \"БетаСтрахование\"",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-08-01T00:00:00Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 4,
+  "fields": {
+    "password": "pswpswpswpsw",
+    "last_login": null,
+    "is_superuser": false,
+    "email": "ss@example.com",
+    "company_name": "СПАО \"СогниСтрах\"",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-08-01T00:00:00Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "insurance.insuranceproductcategory",
+  "pk": 1,
+  "fields": {
+    "name": "ОСАГО",
+    "is_active": true
+  }
+},
+{
+  "model": "insurance.insuranceproductcategory",
+  "pk": 2,
+  "fields": {
+    "name": "КАСКО",
+    "is_active": true
+  }
+},
+{
+  "model": "insurance.insuranceproductcategory",
+  "pk": 3,
+  "fields": {
+    "name": "Здоровье",
+    "is_active": true
+  }
+},
+{
+  "model": "insurance.insuranceproductcategory",
+  "pk": 4,
+  "fields": {
+    "name": "Недвижимость",
+    "is_active": true
+  }
+},
+{
+  "model": "insurance.insuranceproductcategory",
+  "pk": 5,
+  "fields": {
+    "name": "Бизнес",
+    "is_active": true
+  }
+},
+{
+  "model": "insurance.insuranceproduct",
+  "pk": 1,
+  "fields": {
+    "category": 5,
+    "created_by": 2,
+    "name": "РГУ Бизнес месяц",
+    "description": "РГУ Бизнес месяц описание",
+    "percent_rate": "1.00",
+    "term": "MO",
+    "created_at": "2021-08-01T21:52:57.477Z",
+    "updated_at": "2021-08-01T21:52:57.477Z",
+    "is_active": true
+  }
+},
+{
+  "model": "insurance.insuranceproduct",
+  "pk": 2,
+  "fields": {
+    "category": 5,
+    "created_by": 2,
+    "name": "РГУ Бизнес год",
+    "description": "РГУ Бизнес год описание",
+    "percent_rate": "2.00",
+    "term": "YE",
+    "created_at": "2021-08-01T21:53:17.439Z",
+    "updated_at": "2021-08-01T21:53:17.439Z",
+    "is_active": true
+  }
+},
+{
+  "model": "insurance.insuranceproduct",
+  "pk": 3,
+  "fields": {
+    "category": 3,
+    "created_by": 2,
+    "name": "РГУ Здоровье месяц",
+    "description": "РГУ Здоровье месяц описание",
+    "percent_rate": "3.00",
+    "term": "MO",
+    "created_at": "2021-08-01T21:53:51.708Z",
+    "updated_at": "2021-08-01T21:53:51.708Z",
+    "is_active": true
+  }
+},
+{
+  "model": "insurance.insuranceproduct",
+  "pk": 4,
+  "fields": {
+    "category": 3,
+    "created_by": 2,
+    "name": "РГУ Здоровье год",
+    "description": "РГУ Здоровье год описание",
+    "percent_rate": "4.00",
+    "term": "YE",
+    "created_at": "2021-08-01T21:54:09.739Z",
+    "updated_at": "2021-08-01T21:54:09.740Z",
+    "is_active": true
+  }
+},
+{
+  "model": "insurance.insuranceproduct",
+  "pk": 5,
+  "fields": {
+    "category": 2,
+    "created_by": 2,
+    "name": "РГУ КАСКО месяц",
+    "description": "РГУ КАСКО месяц описание",
+    "percent_rate": "5.00",
+    "term": "MO",
+    "created_at": "2021-08-01T21:54:42.234Z",
+    "updated_at": "2021-08-01T21:54:42.234Z",
+    "is_active": true
+  }
+},
+{
+  "model": "insurance.insuranceproduct",
+  "pk": 6,
+  "fields": {
+    "category": 2,
+    "created_by": 2,
+    "name": "РГУ КАСКО год",
+    "description": "РГУ КАСКО год описание",
+    "percent_rate": "6.00",
+    "term": "YE",
+    "created_at": "2021-08-01T21:55:12.656Z",
+    "updated_at": "2021-08-01T21:55:12.656Z",
+    "is_active": true
+  }
+},
+{
+  "model": "insurance.insuranceproduct",
+  "pk": 7,
+  "fields": {
+    "category": 4,
+    "created_by": 2,
+    "name": "РГУ Недвижимость месяц",
+    "description": "РГУ Недвижимость месяц описание",
+    "percent_rate": "7.00",
+    "term": "MO",
+    "created_at": "2021-08-01T21:55:54.377Z",
+    "updated_at": "2021-08-01T21:55:54.377Z",
+    "is_active": true
+  }
+},
+{
+  "model": "insurance.insuranceproduct",
+  "pk": 8,
+  "fields": {
+    "category": 4,
+    "created_by": 2,
+    "name": "РГУ Недвижимость год",
+    "description": "РГУ Недвижимость год описание",
+    "percent_rate": "8.00",
+    "term": "YE",
+    "created_at": "2021-08-01T21:56:16.484Z",
+    "updated_at": "2021-08-01T21:56:16.484Z",
+    "is_active": true
+  }
+},
+{
+  "model": "insurance.insuranceproduct",
+  "pk": 9,
+  "fields": {
+    "category": 1,
+    "created_by": 2,
+    "name": "РГУ ОСАГО месяц",
+    "description": "РГУ ОСАГО месяц описание",
+    "percent_rate": "9.00",
+    "term": "MO",
+    "created_at": "2021-08-01T21:56:54.059Z",
+    "updated_at": "2021-08-01T21:56:54.059Z",
+    "is_active": true
+  }
+},
+{
+  "model": "insurance.insuranceproduct",
+  "pk": 10,
+  "fields": {
+    "category": 1,
+    "created_by": 2,
+    "name": "РГУ ОСАГО год",
+    "description": "РГУ ОСАГО год описание",
+    "percent_rate": "10.00",
+    "term": "YE",
+    "created_at": "2021-08-01T21:57:22.283Z",
+    "updated_at": "2021-08-01T21:57:22.283Z",
+    "is_active": true
+  }
+},
+{
+  "model": "insurance.insuranceproduct",
+  "pk": 11,
+  "fields": {
+    "category": 5,
+    "created_by": 3,
+    "name": "БС Бизнес месяц",
+    "description": "БС Бизнес месяц описание",
+    "percent_rate": "11.00",
+    "term": "MO",
+    "created_at": "2021-08-01T21:59:37.583Z",
+    "updated_at": "2021-08-01T21:59:37.583Z",
+    "is_active": true
+  }
+},
+{
+  "model": "insurance.insuranceproduct",
+  "pk": 12,
+  "fields": {
+    "category": 5,
+    "created_by": 3,
+    "name": "БС Бизнес год",
+    "description": "БС Бизнес год описание",
+    "percent_rate": "12.00",
+    "term": "YE",
+    "created_at": "2021-08-01T22:00:01.087Z",
+    "updated_at": "2021-08-01T22:00:01.087Z",
+    "is_active": true
+  }
+},
+{
+  "model": "insurance.insuranceproduct",
+  "pk": 13,
+  "fields": {
+    "category": 3,
+    "created_by": 3,
+    "name": "БС Здоровье месяц",
+    "description": "БС Здоровье месяц описание",
+    "percent_rate": "13.00",
+    "term": "MO",
+    "created_at": "2021-08-01T22:00:33.000Z",
+    "updated_at": "2021-08-01T22:00:33.000Z",
+    "is_active": true
+  }
+},
+{
+  "model": "insurance.insuranceproduct",
+  "pk": 14,
+  "fields": {
+    "category": 3,
+    "created_by": 3,
+    "name": "БС Здоровье год",
+    "description": "БС Здоровье год описание",
+    "percent_rate": "14.00",
+    "term": "YE",
+    "created_at": "2021-08-01T22:01:18.049Z",
+    "updated_at": "2021-08-01T22:01:18.049Z",
+    "is_active": true
+  }
+},
+{
+  "model": "insurance.insuranceproduct",
+  "pk": 15,
+  "fields": {
+    "category": 2,
+    "created_by": 3,
+    "name": "БС КАСКО месяц",
+    "description": "БС КАСКО месяц описание",
+    "percent_rate": "15.00",
+    "term": "MO",
+    "created_at": "2021-08-01T22:01:48.360Z",
+    "updated_at": "2021-08-01T22:01:48.360Z",
+    "is_active": true
+  }
+},
+{
+  "model": "insurance.insuranceproduct",
+  "pk": 16,
+  "fields": {
+    "category": 2,
+    "created_by": 3,
+    "name": "БС КАСКО год",
+    "description": "БС КАСКО год описание",
+    "percent_rate": "16.00",
+    "term": "YE",
+    "created_at": "2021-08-01T22:02:24.900Z",
+    "updated_at": "2021-08-01T22:02:24.900Z",
+    "is_active": true
+  }
+},
+{
+  "model": "insurance.insuranceproduct",
+  "pk": 17,
+  "fields": {
+    "category": 4,
+    "created_by": 3,
+    "name": "БС Недвижимость месяц",
+    "description": "БС Недвижимость месяц описание",
+    "percent_rate": "17.00",
+    "term": "MO",
+    "created_at": "2021-08-01T22:02:56.749Z",
+    "updated_at": "2021-08-01T22:02:56.749Z",
+    "is_active": true
+  }
+},
+{
+  "model": "insurance.insuranceproduct",
+  "pk": 18,
+  "fields": {
+    "category": 4,
+    "created_by": 3,
+    "name": "БС Недвижимость год",
+    "description": "БС Недвижимость год описание",
+    "percent_rate": "18.00",
+    "term": "YE",
+    "created_at": "2021-08-01T22:03:27.277Z",
+    "updated_at": "2021-08-01T22:03:27.277Z",
+    "is_active": true
+  }
+},
+{
+  "model": "insurance.insuranceproduct",
+  "pk": 19,
+  "fields": {
+    "category": 1,
+    "created_by": 3,
+    "name": "БС ОСАГО месяц",
+    "description": "БС ОСАГО месяц описание",
+    "percent_rate": "19.00",
+    "term": "MO",
+    "created_at": "2021-08-01T22:04:00.703Z",
+    "updated_at": "2021-08-01T22:04:00.703Z",
+    "is_active": true
+  }
+},
+{
+  "model": "insurance.insuranceproduct",
+  "pk": 20,
+  "fields": {
+    "category": 1,
+    "created_by": 3,
+    "name": "БС ОСАГО год",
+    "description": "БС ОСАГО год описание",
+    "percent_rate": "20.00",
+    "term": "YE",
+    "created_at": "2021-08-01T22:04:50.282Z",
+    "updated_at": "2021-08-01T22:04:50.282Z",
+    "is_active": true
+  }
+},
+{
+  "model": "insurance.insuranceproduct",
+  "pk": 21,
+  "fields": {
+    "category": 5,
+    "created_by": 4,
+    "name": "СС Бизнес месяц",
+    "description": "СС Бизнес месяц описание",
+    "percent_rate": "21.00",
+    "term": "MO",
+    "created_at": "2021-08-01T22:06:12.516Z",
+    "updated_at": "2021-08-01T22:06:12.516Z",
+    "is_active": true
+  }
+},
+{
+  "model": "insurance.insuranceproduct",
+  "pk": 22,
+  "fields": {
+    "category": 5,
+    "created_by": 4,
+    "name": "СС Бизнес год",
+    "description": "СС Бизнес год описание",
+    "percent_rate": "22.00",
+    "term": "YE",
+    "created_at": "2021-08-01T22:07:01.198Z",
+    "updated_at": "2021-08-01T22:07:01.198Z",
+    "is_active": true
+  }
+},
+{
+  "model": "insurance.insuranceproduct",
+  "pk": 23,
+  "fields": {
+    "category": 3,
+    "created_by": 4,
+    "name": "СС Здоровье месяц",
+    "description": "СС Здоровье месяц описание",
+    "percent_rate": "23.00",
+    "term": "MO",
+    "created_at": "2021-08-01T22:07:43.721Z",
+    "updated_at": "2021-08-01T22:07:43.721Z",
+    "is_active": true
+  }
+},
+{
+  "model": "insurance.insuranceproduct",
+  "pk": 24,
+  "fields": {
+    "category": 3,
+    "created_by": 4,
+    "name": "СС Здоровье год",
+    "description": "СС Здоровье год описание",
+    "percent_rate": "24.00",
+    "term": "YE",
+    "created_at": "2021-08-01T22:08:37.518Z",
+    "updated_at": "2021-08-01T22:08:37.518Z",
+    "is_active": true
+  }
+},
+{
+  "model": "insurance.insuranceproduct",
+  "pk": 25,
+  "fields": {
+    "category": 2,
+    "created_by": 4,
+    "name": "СС КАСКО месяц",
+    "description": "СС КАСКО месяц описание",
+    "percent_rate": "25.00",
+    "term": "MO",
+    "created_at": "2021-08-01T22:09:27.581Z",
+    "updated_at": "2021-08-01T22:09:27.581Z",
+    "is_active": true
+  }
+},
+{
+  "model": "insurance.insuranceproduct",
+  "pk": 26,
+  "fields": {
+    "category": 2,
+    "created_by": 4,
+    "name": "СС КАСКО год",
+    "description": "СС КАСКО год описание",
+    "percent_rate": "26.00",
+    "term": "YE",
+    "created_at": "2021-08-01T22:09:52.529Z",
+    "updated_at": "2021-08-01T22:09:52.529Z",
+    "is_active": true
+  }
+},
+{
+  "model": "insurance.insuranceproduct",
+  "pk": 27,
+  "fields": {
+    "category": 4,
+    "created_by": 4,
+    "name": "СС Недвижимость месяц",
+    "description": "СС Недвижимость месяц описание",
+    "percent_rate": "27.00",
+    "term": "MO",
+    "created_at": "2021-08-01T22:10:27.184Z",
+    "updated_at": "2021-08-01T22:10:27.184Z",
+    "is_active": true
+  }
+},
+{
+  "model": "insurance.insuranceproduct",
+  "pk": 28,
+  "fields": {
+    "category": 4,
+    "created_by": 4,
+    "name": "СС Недвижимость год",
+    "description": "СС Недвижимость год описание",
+    "percent_rate": "28.00",
+    "term": "YE",
+    "created_at": "2021-08-01T22:10:52.750Z",
+    "updated_at": "2021-08-01T22:10:52.750Z",
+    "is_active": true
+  }
+},
+{
+  "model": "insurance.insuranceproduct",
+  "pk": 29,
+  "fields": {
+    "category": 1,
+    "created_by": 4,
+    "name": "СС ОСАГО месяц",
+    "description": "СС ОСАГО месяц описание",
+    "percent_rate": "29.00",
+    "term": "MO",
+    "created_at": "2021-08-01T22:11:23.926Z",
+    "updated_at": "2021-08-01T22:11:23.926Z",
+    "is_active": true
+  }
+},
+{
+  "model": "insurance.insuranceproduct",
+  "pk": 30,
+  "fields": {
+    "category": 1,
+    "created_by": 4,
+    "name": "СС ОСАГО год",
+    "description": "СС ОСАГО год описание",
+    "percent_rate": "30.00",
+    "term": "YE",
+    "created_at": "2021-08-01T22:11:44.025Z",
+    "updated_at": "2021-08-01T22:11:44.025Z",
+    "is_active": true
+  }
+}
+]

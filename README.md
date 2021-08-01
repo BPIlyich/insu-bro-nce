@@ -55,6 +55,11 @@ pip install -r requirements.txt
 python insu-bro-nce/manage.py migrate
 ```
 
+[*опционально*] Загрузка фикстур
+```sh
+python insu-bro-nce/manage.py loaddata fixtures.json
+```
+
 Локализация
 ```sh
 python insu-bro-nce/manage.py compilemessages
@@ -69,7 +74,7 @@ python insu-bro-nce/manage.py runserver
 - [ ] Написать тесты
   - [x] users
   - [ ] insurance
-- [ ] Добавить фикстуры
+- [x] Добавить фикстуры
 - [x] Настроить админку
 - [ ] Добавить боевой конфиг
 - [ ] Развернуть проект ([pythonanywhere.com](https://www.pythonanywhere.com/), [heroku.com](https://www.heroku.com) или где-нибудь ещё)
