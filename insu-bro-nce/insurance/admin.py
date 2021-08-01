@@ -1,3 +1,12 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import (
+    InsuranceProductCategory,
+    InsuranceProduct,
+    InsuranceProductResponse
+)
+
+
+admin.site.register(InsuranceProductCategory)
+admin.site.register(InsuranceProduct)
+admin.site.register(InsuranceProductResponse)
