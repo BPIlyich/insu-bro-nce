@@ -13,6 +13,7 @@ from .models import InsuranceProduct, InsuranceProductResponse
 from .filters import InsuranceProductFilter, InsuranceProductResponseFilter
 from .tables import InsuranceProductTable, InsuranceProductResponseTable
 from .tasks import send_email_notification
+from .documents import InsuranceProductDocument
 
 
 class InsuranceProductFilteredTableView(SingleTableMixin, FilterView):
@@ -24,6 +25,20 @@ class InsuranceProductFilteredTableView(SingleTableMixin, FilterView):
     template_name = 'table_with_filter.html'
     filterset_class = InsuranceProductFilter
     extra_context = {'title': _('Insurance products')}
+
+    def get_queryset(self):
+        """
+        Переопределение стандартного метода для полнотекстового поиска
+        """
+        # TODO: разобраться с пагинацией для elasticsearch
+        if es := self.request.GET.get('es'):
+            return InsuranceProductDocument.search().query(
+                'multi_match',
+                query=es,
+                fields=('name', 'description')
+            ).extra(size=999).to_queryset()
+        else:
+            return super().get_queryset()
 
 
 class InsuranceProductCreateView(

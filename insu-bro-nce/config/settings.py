@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'django_elasticsearch_dsl',
     'django_bootstrap5',
     'django_filters',
     'django_tables2',
@@ -175,3 +176,17 @@ RABBITMQ_DEFAULT_VHOST = os.environ.get('RABBITMQ_DEFAULT_VHOST', '/')
 
 # Celery properties
 CELERY_BROKER_URL = f'pyamqp://{RABBITMQ_DEFAULT_USER}:{RABBITMQ_DEFAULT_PASS}@rabbit:5672/{RABBITMQ_DEFAULT_VHOST}'
+
+
+# Elasticsearch properties
+ELASTICSEARCH_DSL_HOST = os.environ.get('ELASTICSEARCH_DSL_HOST', 'localhost')
+ELASTICSEARCH_DSL_PORT = os.environ.get('ELASTICSEARCH_DSL_PORT', '9200')
+ELASTICSEARCH_DSL = {
+    'default': {
+        'hosts': f'{ELASTICSEARCH_DSL_HOST}:{ELASTICSEARCH_DSL_PORT}'
+    },
+}
+# TODO: создать CelerySignalProcessor для индексации через очередь задач
+# ELASTICSEARCH_DSL_SIGNAL_PROCESSOR = 'CelerySignalProcessor'
+# TODO: для PostgreSQL в будущем использовать строку ниже
+# ELASTICSEARCH_DSL_PARALLEL = True
