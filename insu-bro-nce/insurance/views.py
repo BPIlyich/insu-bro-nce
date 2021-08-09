@@ -30,13 +30,17 @@ class InsuranceProductFilteredTableView(SingleTableMixin, FilterView):
         """
         Переопределение стандартного метода для полнотекстового поиска
         """
-        # TODO: разобраться с пагинацией для elasticsearch
-        if es := self.request.GET.get('es'):
-            return InsuranceProductDocument.search().query(
+        # Видимо придется отказываться от django-filter и всю фильтрацию во View
+        # с полнотекстовым поиском делать средствами django-elasticsearch-dsl
+        # FIXME: Выглядит как костыль
+        if full_text_search := self.request.GET.get('es'):
+            search = InsuranceProductDocument.search().query(
                 'multi_match',
-                query=es,
+                query=full_text_search,
                 fields=('name', 'description')
-            ).extra(size=999).to_queryset()
+            )
+            total = search.count()
+            return search.extra(size=total).to_queryset()
         else:
             return super().get_queryset()
 
