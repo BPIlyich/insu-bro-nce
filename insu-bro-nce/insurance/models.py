@@ -67,6 +67,12 @@ class InsuranceProduct(models.Model):
             'created_by': self.created_by
         }
 
+    def get_absolute_url(self) -> str:
+        """
+        Возвращает адрес для просмотра конкретного страхового продукта
+        """
+        return reverse_lazy('insurance:product:object', kwargs={'pk': self.pk})
+
     def get_response_creation_url(self) -> str:
         """
         Возвращает адрес создания отклика на конкретный страховой продукт

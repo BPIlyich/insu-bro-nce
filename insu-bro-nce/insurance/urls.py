@@ -5,12 +5,14 @@ from .views import (
     InsuranceProductCreateView,
     InsuranceProductUpdateView,
     InsuranceProductResponseFilteredTableView,
-    InsuranceProductResponseCreateView
+    InsuranceProductResponseCreateView,
+    InsuranceProductDetailView
 )
 
 app_name = 'insurance'
 
 insurance_product_urlpatterns = ([
+    path('<int:pk>/', InsuranceProductDetailView.as_view(), name='object'),
     path('table/', InsuranceProductFilteredTableView.as_view(), name='table'),
     path('create/', InsuranceProductCreateView.as_view(), name='create'),
     path('update/<int:pk>/', InsuranceProductUpdateView.as_view(), name='update'),

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{# TODO: Сделать более симпатичную реализацию #}
+{% block content %}
+  <ul class="list-group">
+    <li class="list-group-item"><b>{% trans "category"|capfirst %}:</b> {{ object.category }}</li>
+    <li class="list-group-item"><b>{% trans "created by"|capfirst %}:</b> {{ object.created_by }}</li>
+    <li class="list-group-item"><b>{% trans "name"|capfirst %}:</b> {{ object.name }}</li>
+    <li class="list-group-item"><b>{% trans "description"|capfirst %}:</b> {{ object.description }}</li>
+    <li class="list-group-item"><b>{% trans "rate %"|capfirst %}:</b> {{ object.percent_rate }}</li>
+    <li class="list-group-item"><b>{% trans "term"|capfirst %}:</b> {{ object.term }}</li>
+    <li class="list-group-item"><b>{% trans "created at"|capfirst %}:</b> {{ object.created_at }}</li>
+    <li class="list-group-item"><b>{% trans "updated at"|capfirst %}:</b> {{ object.updated_at }}</li>
+    <li class="list-group-item"><b>{% trans "view counter"|capfirst %}:</b> TODO: счетчик просмотров</li>
+  </ul>
+  {% if user == object.created_by %}
+    <a class="btn btn-primary" href="{{ object.get_update_url }}" role="button">{% trans "update" %}</a>
+  {% else %}
+    <a class="btn btn-primary" href="{{ object.get_response_creation_url }}" role="button">{% trans "response" %}</a>
+  {% endif %}
+{% endblock %}

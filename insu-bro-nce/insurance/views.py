@@ -3,7 +3,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
-from django.views.generic import UpdateView
+from django.views.generic import UpdateView, DetailView
 from django.views.generic.edit import CreateView
 
 from django_filters.views import FilterView
@@ -42,6 +42,17 @@ class InsuranceProductCreateView(
     def form_valid(self, form):
         form.instance.created_by = self.request.user
         return super().form_valid(form)
+
+
+class InsuranceProductDetailView(DetailView):
+    """
+    View для просмотра информации по конкретному страховому продукту
+    """
+    model = InsuranceProduct
+
+    def get_context_data(self, **kwargs):
+        kwargs['title'] = str(self.object)
+        return super().get_context_data(**kwargs)
 
 
 class InsuranceProductUpdateView(
