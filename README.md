@@ -79,3 +79,6 @@ python insu-bro-nce/manage.py runserver
 - [ ] Добавить боевой конфиг
 - [ ] Развернуть проект ([pythonanywhere.com](https://www.pythonanywhere.com/), [heroku.com](https://www.heroku.com) или где-нибудь ещё)
 - [x] Добавить очередь задач (celery + RabbitMQ)
+- [ ] Добавить счётчик просмотров для страниц страховых продуктов
+  - [ ] Счётчик просмотров хранить в NoSQL (Redis / Mongo / Memcached)
+  - [ ] Счётчик просмотров добавить в админку
