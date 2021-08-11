@@ -13,6 +13,7 @@ from .models import InsuranceProduct, InsuranceProductResponse
 from .filters import InsuranceProductFilter, InsuranceProductResponseFilter
 from .tables import InsuranceProductTable, InsuranceProductResponseTable
 from .tasks import send_email_notification
+from .utils import update_page_counter
 
 
 class InsuranceProductFilteredTableView(SingleTableMixin, FilterView):
@@ -53,6 +54,15 @@ class InsuranceProductDetailView(DetailView):
     def get_context_data(self, **kwargs):
         kwargs['title'] = str(self.object)
         return super().get_context_data(**kwargs)
+
+    def get(self, request, *args, **kwargs):
+        response = super().get(request, *args, **kwargs)
+        # Учитываем каждый просмотр каждого пользователя
+        update_page_counter(query_dict={
+            'url': request.path_info,
+            'product_id': self.object.pk
+        })
+        return response
 
 
 class InsuranceProductUpdateView(
