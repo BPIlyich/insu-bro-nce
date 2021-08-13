@@ -4,6 +4,8 @@ from django.utils.translation import gettext_lazy as _
 from django.utils.translation import pgettext_lazy
 from django.urls import reverse_lazy
 
+from .mongo_helpers import page_view_counter
+
 
 User = get_user_model()
 
@@ -85,6 +87,16 @@ class InsuranceProduct(models.Model):
         Возвращает адрес редактирования объекта
         """
         return reverse_lazy('insurance:product:update', kwargs={'pk': self.pk})
+
+    @property
+    def page_view_counter(self) -> int:
+        """
+        Возвращает количество просмотров страницы страхового продукта
+        """
+        return page_view_counter.get_page_view_counter(query_dict={
+            'url': str(self.get_absolute_url()),
+            'product_id': self.pk
+        })
 
     class Meta:
         ordering = ('-created_at', )

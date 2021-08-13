@@ -10,6 +10,8 @@ class InsuranceProductTable(tables.Table):
     """
     Таблица страховых продуктов
     """
+    page_view_counter = tables.Column(
+        verbose_name=_('page view counter'), orderable=False)
     get_action = tables.Column(
         verbose_name=_('actions'), orderable=False, accessor='pk')
 
@@ -23,7 +25,8 @@ class InsuranceProductTable(tables.Table):
     class Meta:
         model = InsuranceProduct
         sequence = ('category', 'created_by', 'name', 'description', 'term',
-                    'percent_rate', 'created_at', 'is_active', 'get_action')
+                    'percent_rate', 'created_at', 'is_active',
+                    'page_view_counter', 'get_action')
         exclude = ('id', 'updated_at')
 
 

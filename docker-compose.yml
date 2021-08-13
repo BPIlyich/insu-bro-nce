@@ -4,11 +4,13 @@ services:
   web:
     image: backend-image
     container_name: web
+    hostname: web
     build: .
     command: sh -c "python insu-bro-nce/manage.py migrate &&
-                      python insu-bro-nce/manage.py loaddata fixtures.json &&
-                      python insu-bro-nce/manage.py compilemessages &&
-                      python insu-bro-nce/manage.py runserver 0.0.0.0:8080"
+                    python insu-bro-nce/manage.py compilemessages &&
+                    wait-for-it --parallel --service rabbit:5672 --service mongo:27017 &&
+                    python insu-bro-nce/manage.py loaddata fixtures.json &&
+                    python insu-bro-nce/manage.py runserver 0.0.0.0:8080"
     env_file: dev.env
     volumes:
       - .:/code
@@ -16,6 +18,7 @@ services:
       - "8080:8080"
     depends_on:
       - rabbit
+      - mongo
 
   # TODO: на версии 3.9.0 не работают переменные. Нужен конфигурационный файл
   rabbit:
@@ -28,10 +31,21 @@ services:
       - "5672:5672"
       - "15672:15672"
 
-  worker:
+  celery:
     image: backend-image
+    container_name: celery
     restart: on-failure
-    command: sh -c "cd insu-bro-nce && celery -A config worker -l INFO"
+    command: sh -c "wait-for-it --service rabbit:5672 &&
+                    cd insu-bro-nce && celery -A config worker -l INFO"
     depends_on:
       - web
       - rabbit
+
+  mongo:
+    image: mongo:5.0.2
+    restart: on-failure
+    container_name: mongo
+    hostname: mongo
+    env_file: dev.env
+    ports:
+      - 27017:27017
