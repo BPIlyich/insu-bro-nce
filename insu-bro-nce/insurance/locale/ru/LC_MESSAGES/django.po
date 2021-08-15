@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-15 20:41+0000\n"
+"POT-Creation-Date: 2021-08-15 22:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -121,20 +121,24 @@ msgstr "отклик на страховой продукт"
 msgid "insurance product responses"
 msgstr "отклики на страховые продукты"
 
-#: insu-bro-nce/insurance/tables.py:14
+#: insu-bro-nce/insurance/tables.py:15
 msgid "page view counter"
 msgstr "счётчик просмотров страницы"
 
-#: insu-bro-nce/insurance/tables.py:16
+#: insu-bro-nce/insurance/tables.py:17
 msgid "actions"
 msgstr "действия"
 
-#: insu-bro-nce/insurance/tables.py:21
+#: insu-bro-nce/insurance/tables.py:20
+msgid "details"
+msgstr "подробнее"
+
+#: insu-bro-nce/insurance/tables.py:23
 #: insu-bro-nce/insurance/templates/insurance/insuranceproduct_detail.html:21
 msgid "response"
 msgstr "отклик"
 
-#: insu-bro-nce/insurance/tables.py:23
+#: insu-bro-nce/insurance/tables.py:26
 #: insu-bro-nce/insurance/templates/insurance/insuranceproduct_detail.html:19
 msgid "update"
 msgstr "редактировать"

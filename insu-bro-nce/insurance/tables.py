@@ -1,4 +1,5 @@
 from django.utils.translation import gettext_lazy as _
+from django.utils.safestring import mark_safe
 
 import django_tables2 as tables
 
@@ -16,11 +17,16 @@ class InsuranceProductTable(tables.Table):
         verbose_name=_('actions'), orderable=False, accessor='pk')
 
     def render_get_action(self, record):
+        view_link = build_link(record.get_absolute_url(), text=_('details'))
         if self.request.user != record.created_by:
-            return build_link(
+            another_link = build_link(
                 record.get_response_creation_url(), text=_('response'))
         else:
-            return build_link(record.get_update_url(), text=_('update'))
+            another_link = build_link(
+                record.get_update_url(), text=_('update'))
+        return mark_safe('<br>'.join((
+            view_link, another_link
+        )))
 
     class Meta:
         model = InsuranceProduct
