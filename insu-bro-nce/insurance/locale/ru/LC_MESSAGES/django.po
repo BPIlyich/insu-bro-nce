@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-15 22:11+0000\n"
+"POT-Creation-Date: 2021-08-15 22:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,10 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: insu-bro-nce/insurance/filters.py:16
+msgid "full-text search"
+msgstr "полнотекстовый поиск"
 
 #: insu-bro-nce/insurance/models.py:19 insu-bro-nce/insurance/models.py:56
 #: insu-bro-nce/insurance/templates/insurance/insuranceproduct_detail.html:10
@@ -153,49 +157,49 @@ msgstr "ставка %%"
 msgid "view counter"
 msgstr "счётчик просмотров"
 
-#: insu-bro-nce/insurance/views.py:27
+#: insu-bro-nce/insurance/views.py:28
 msgid "Insurance products"
 msgstr "Страховые продукты"
 
-#: insu-bro-nce/insurance/views.py:39
+#: insu-bro-nce/insurance/views.py:59
 #, python-format
 msgid "Insurance product \"%(name)s\" was created successfully"
 msgstr "Страховой продукт \"%(name)s\" создан успешно"
 
-#: insu-bro-nce/insurance/views.py:41
+#: insu-bro-nce/insurance/views.py:61
 msgid "Create insurance product"
 msgstr "Создать страховой продукт"
 
-#: insu-bro-nce/insurance/views.py:78
+#: insu-bro-nce/insurance/views.py:98
 #, python-format
 msgid "Insurance product \"%(name)s\" was updated successfully"
 msgstr "Страховой продукт \"%(name)s\" отредактирован успешно"
 
-#: insu-bro-nce/insurance/views.py:80
+#: insu-bro-nce/insurance/views.py:100
 msgid "Update insurance product"
 msgstr "Редактировать страховой продукт"
 
-#: insu-bro-nce/insurance/views.py:99
+#: insu-bro-nce/insurance/views.py:119
 msgid "Insurance product responces"
 msgstr "Отклики на страхоые продукты"
 
-#: insu-bro-nce/insurance/views.py:121
+#: insu-bro-nce/insurance/views.py:141
 #, python-format
 msgid ""
 "Response for insurance product \"%(insurance_product)s\" was created "
 "successfully"
 msgstr "Отклик на страховой продукт \"%(insurance_product)s\" создан успешно"
 
-#: insu-bro-nce/insurance/views.py:125
+#: insu-bro-nce/insurance/views.py:145
 msgid "Create response for insurance product"
 msgstr "Создать отклик на страховой продукт"
 
-#: insu-bro-nce/insurance/views.py:136
+#: insu-bro-nce/insurance/views.py:156
 #, python-format
 msgid "New response at %(created_at)s for product \"%(insurance_product)s\""
 msgstr "Новый отклик от %(created_at)s на продукт \"%(insurance_product)s\""
 
-#: insu-bro-nce/insurance/views.py:142
+#: insu-bro-nce/insurance/views.py:162
 #, python-format
 msgid ""
 "name: %(name)s\n"
