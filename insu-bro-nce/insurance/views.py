@@ -37,7 +37,8 @@ class InsuranceProductFilteredTableView(SingleTableMixin, FilterView):
             search = InsuranceProductDocument.search().query(
                 'multi_match',
                 query=full_text_search,
-                fields=('name', 'description')
+                fields=('name', 'description'),
+                fuzziness='AUTO'
             )
             total = search.count()
             return search.extra(size=total).to_queryset()
