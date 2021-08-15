@@ -132,15 +132,23 @@ class InsuranceProductResponseCreateView(SuccessMessageMixin, CreateView):
 
     def form_valid(self, form):
         response = super().form_valid(form)
-        # TODO: Подумать над текстом и добавить локализацию
-        subject = _(f'New response at {self.object.created_at:%d.%m.%Y %H:%M} '
-                    f'for product "{self.object.insurance_product}"')
-        message = _('\n'.join((
-            f'name: {self.object.name}',
-            f'email: {self.object.email}',
-            f'phone: {self.object.phone}',
-            f'comment: {self.object.comment}'
-        )))
+        subject = _(
+            'New response at %(created_at)s for product "%(insurance_product)s"'
+        ) % {
+            'created_at': self.object.created_at.strftime('%d.%m.%Y %H:%M'),
+            'insurance_product': self.object.insurance_product
+        }
+        message = _(
+            'name: %(name)s\n'
+            'email: %(email)s\n'
+            'phone: %(phone)s\n'
+            'comment: %(comment)s'
+        ) % {
+            'name': self.object.name,
+            'email': self.object.email,
+            'phone': self.object.phone,
+            'comment': self.object.comment
+        }
         send_email_notification.delay(
             user_id=self.object.insurance_product.created_by.pk,
             subject=subject,
