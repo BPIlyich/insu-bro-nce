@@ -83,3 +83,6 @@ python insu-bro-nce/manage.py runserver
   - [x] Счётчик просмотров хранить в Mongo
   - [x] Счётчик просмотров добавить на страницу с таблицей страховых продуктов
   - [x] Счётчик просмотров добавить в админку
+- [ ] Добавить полнотекстовый поиск (Elasticsearch)
+  - [x] Минимальная настройка...
+  - [ ] В [InsuranceProductFilteredTableView](https://github.com/BPIlyich/insu-bro-nce/blob/8440d579e3c899552a1f885caff3571384ab9480/insu-bro-nce/insurance/views.py#L19) фильтрацию делать средствами `django-elasticsearch-dsl`

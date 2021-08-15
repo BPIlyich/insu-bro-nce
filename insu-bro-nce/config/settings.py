@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'django_elasticsearch_dsl',
     'django_bootstrap5',
     'django_filters',
     'django_tables2',
@@ -183,3 +184,17 @@ MONGODB_PORT = int(os.environ.get('MONGODB_PORT', 27017))
 MONGODB_USERNAME = os.environ.get('MONGO_INITDB_ROOT_USERNAME', 'admin')
 MONGODB_PASSWORD = os.environ.get('MONGO_INITDB_ROOT_PASSWORD', 'admin')
 MONGODB_DATABASE = os.environ.get('MONGODB_DATABASE', 'insu_bro_nce')
+
+
+# Elasticsearch properties
+ELASTICSEARCH_DSL_HOST = os.environ.get('ELASTICSEARCH_DSL_HOST', 'localhost')
+ELASTICSEARCH_DSL_PORT = os.environ.get('ELASTICSEARCH_DSL_PORT', '9200')
+ELASTICSEARCH_DSL = {
+    'default': {
+        'hosts': f'{ELASTICSEARCH_DSL_HOST}:{ELASTICSEARCH_DSL_PORT}'
+    },
+}
+# TODO: создать CelerySignalProcessor для индексации через очередь задач
+# ELASTICSEARCH_DSL_SIGNAL_PROCESSOR = 'CelerySignalProcessor'
+# TODO: для PostgreSQL в будущем использовать строку ниже
+# ELASTICSEARCH_DSL_PARALLEL = True

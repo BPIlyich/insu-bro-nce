@@ -14,6 +14,7 @@ from .filters import InsuranceProductFilter, InsuranceProductResponseFilter
 from .tables import InsuranceProductTable, InsuranceProductResponseTable
 from .tasks import send_email_notification
 from .mongo_helpers import page_view_counter
+from .documents import InsuranceProductDocument
 
 
 class InsuranceProductFilteredTableView(SingleTableMixin, FilterView):
@@ -25,6 +26,25 @@ class InsuranceProductFilteredTableView(SingleTableMixin, FilterView):
     template_name = 'table_with_filter.html'
     filterset_class = InsuranceProductFilter
     extra_context = {'title': _('Insurance products')}
+
+    def get_queryset(self):
+        """
+        Переопределение стандартного метода для полнотекстового поиска
+        """
+        # Видимо придется отказываться от django-filter и всю фильтрацию во View
+        # с полнотекстовым поиском делать средствами django-elasticsearch-dsl
+        # FIXME: Выглядит как костыль
+        if full_text_search := self.request.GET.get('es'):
+            search = InsuranceProductDocument.search().query(
+                'multi_match',
+                query=full_text_search,
+                fields=('name', 'description'),
+                fuzziness='AUTO'
+            )
+            total = search.count()
+            return search.extra(size=total).to_queryset()
+        else:
+            return super().get_queryset()
 
 
 class InsuranceProductCreateView(
